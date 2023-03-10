@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('video_id')->constrained('videos')->cascadeOnDelete();
-            $table->foreignId('replay_id')->nullable()->constrained('comments');
-            $table->text('body');
+            $table->foreignId('channel_id')->constrained('channels');
+            $table->string('content');
+            $table->boolean('is_viewed')->default(false);
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('notifications');
     }
 };

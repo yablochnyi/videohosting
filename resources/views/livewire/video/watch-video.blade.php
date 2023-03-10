@@ -25,7 +25,7 @@
                             <div class="video-card video-card-list">
                                 <div class="video-card-image">
                                     <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                                    <a href="#"><img class="img-fluid" src="{{asset('assets/img/v1.png')}}" alt=""></a>
+                                    <a href="#"><img class="img-fluid" src="img/v1.png" alt=""></a>
                                     <div class="time">3:50</div>
                                 </div>
                                 <div class="video-card-body">
@@ -53,7 +53,7 @@
                             <div class="video-card video-card-list active">
                                 <div class="video-card-image">
                                     <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                                    <a href="#"><img class="img-fluid" src="{{asset('assets/img/v2.png')}}" alt=""></a>
+                                    <a href="#"><img class="img-fluid" src="img/v2.png" alt=""></a>
                                     <div class="time">3:50</div>
                                 </div>
                                 <div class="video-card-body">
@@ -81,7 +81,7 @@
                             <div class="video-card video-card-list">
                                 <div class="video-card-image">
                                     <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                                    <a href="#"><img class="img-fluid" src="{{asset('assets/img/v3.png')}}" alt=""></a>
+                                    <a href="#"><img class="img-fluid" src="img/v3.png" alt=""></a>
                                     <div class="time">3:50</div>
                                 </div>
                                 <div class="video-card-body">
@@ -109,7 +109,7 @@
                             <div class="video-card video-card-list">
                                 <div class="video-card-image">
                                     <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                                    <a href="#"><img class="img-fluid" src="{{asset('assets/img/v4.png')}}" alt=""></a>
+                                    <a href="#"><img class="img-fluid" src="img/v4.png" alt=""></a>
                                     <div class="time">3:50</div>
                                 </div>
                                 <div class="video-card-body">
@@ -137,7 +137,7 @@
                             <div class="video-card video-card-list">
                                 <div class="video-card-image">
                                     <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                                    <a href="#"><img class="img-fluid" src="{{asset('assets/img/v5.png')}}" alt=""></a>
+                                    <a href="#"><img class="img-fluid" src="img/v5.png" alt=""></a>
                                     <div class="time">3:50</div>
                                 </div>
                                 <div class="video-card-body">
@@ -165,7 +165,119 @@
                             <div class="video-card video-card-list">
                                 <div class="video-card-image">
                                     <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-                                    <a href="#"><img class="img-fluid" src="{{asset('assets/img/v6.png')}}" alt=""></a>
+                                    <a href="#"><img class="img-fluid" src="img/v6.png" alt=""></a>
+                                    <div class="time">3:50</div>
+                                </div>
+                                <div class="video-card-body">
+                                    <div class="btn-group float-right right-action">
+                                        <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
+                                            <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
+                                            <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                                        </div>
+                                    </div>
+                                    <div class="video-title">
+                                        <a href="#">There are many variations of passages of Lorem</a>
+                                    </div>
+                                    <div class="video-page text-success">
+                                        Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                    </div>
+                                    <div class="video-view">
+                                        1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-card video-card-list">
+                                <div class="video-card-image">
+                                    <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                                    <a href="#"><img class="img-fluid" src="img/v6.png" alt=""></a>
+                                    <div class="time">3:50</div>
+                                </div>
+                                <div class="video-card-body">
+                                    <div class="btn-group float-right right-action">
+                                        <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
+                                            <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
+                                            <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                                        </div>
+                                    </div>
+                                    <div class="video-title">
+                                        <a href="#">There are many variations of passages of Lorem</a>
+                                    </div>
+                                    <div class="video-page text-success">
+                                        Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                    </div>
+                                    <div class="video-view">
+                                        1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-card video-card-list">
+                                <div class="video-card-image">
+                                    <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                                    <a href="#"><img class="img-fluid" src="img/v6.png" alt=""></a>
+                                    <div class="time">3:50</div>
+                                </div>
+                                <div class="video-card-body">
+                                    <div class="btn-group float-right right-action">
+                                        <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
+                                            <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
+                                            <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                                        </div>
+                                    </div>
+                                    <div class="video-title">
+                                        <a href="#">There are many variations of passages of Lorem</a>
+                                    </div>
+                                    <div class="video-page text-success">
+                                        Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                    </div>
+                                    <div class="video-view">
+                                        1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-card video-card-list">
+                                <div class="video-card-image">
+                                    <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                                    <a href="#"><img class="img-fluid" src="img/v6.png" alt=""></a>
+                                    <div class="time">3:50</div>
+                                </div>
+                                <div class="video-card-body">
+                                    <div class="btn-group float-right right-action">
+                                        <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>
+                                            <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
+                                            <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
+                                        </div>
+                                    </div>
+                                    <div class="video-title">
+                                        <a href="#">There are many variations of passages of Lorem</a>
+                                    </div>
+                                    <div class="video-page text-success">
+                                        Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                    </div>
+                                    <div class="video-view">
+                                        1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-card video-card-list">
+                                <div class="video-card-image">
+                                    <a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+                                    <a href="#"><img class="img-fluid" src="img/v6.png" alt=""></a>
                                     <div class="time">3:50</div>
                                 </div>
                                 <div class="video-card-body">
@@ -210,7 +322,7 @@
                             <div class="single-video-author box mb-3">
                                 <livewire:channel.subscribe :channel="$video->channel"/>
                                 <img class="img-fluid" src="{{asset('assets/img/s4.png')}}" alt="">
-                                <p><a href="#"><strong>{{$video->channel->name}}</strong></a> <span title=""><i
+                                <p><a href="{{route('channel.show', $video->channel)}}"><strong>{{$video->channel->name}}</strong></a> <span title=""><i
                                             class=" text-success"></i></span></p>
                                 <small><strong>{{$video->channel->subscribers()}} подписчиков</strong></small>
                             </div>
@@ -492,24 +604,7 @@
         </div>
         <!-- /.container-fluid -->
         <!-- Sticky Footer -->
-        <footer class="sticky-footer">
-            <div class="container">
-                <div class="row no-gutters">
-                    <div class="col-lg-6 col-sm-6">
-                        <p class="mt-1 mb-0">&copy; Copyright 2018 <strong class="text-dark">Vidoe</strong>. All Rights Reserved<br>
-                            <small class="mt-0 mb-0">Made with <i class="fas fa-heart text-danger"></i> by <a class="text-primary" target="_blank" href="https://askbootstrap.com/">Ask Bootstrap</a>
-                            </small>
-                        </p>
-                    </div>
-                    <div class="col-lg-6 col-sm-6 text-right">
-                        <div class="app">
-                            <a href="#"><img alt="" src="{{asset('assets/img/google.png')}}"></a>
-                            <a href="#"><img alt="" src="{{asset('assets/img/apple.png')}}"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <!-- Sticky Footer -->
     </div>
         @push('video-script')
             <script src="//vjs.zencdn.net/7.10.2/video.min.js"></script>

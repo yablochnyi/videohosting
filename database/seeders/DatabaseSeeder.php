@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Channel;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,16 +20,21 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-         \App\Models\User::factory()->create([
-             'name' => 'Test User',
-             'email' => 'admin@admin.com',
-             'password' => Hash::make('admin')
-         ]);
-        \App\Models\User::factory()->create([
-            'name' => 'Test User 2',
-            'email' => 'admin@ain.com',
-            'password' => Hash::make('admin')
-        ]);
-         Channel::factory(20)->create();
+//         \App\Models\User::factory()->create([
+//             'name' => 'Test User',
+//             'email' => 'admin@admin.com',
+//             'password' => Hash::make('admin')
+//         ]);
+//        \App\Models\User::factory()->create([
+//            'name' => 'Test User 2',
+//            'email' => 'admin@ain.com',
+//            'password' => Hash::make('admin')
+//        ]);
+//         Channel::factory(20)->create();
+
+//         Category::factory(5)->create([
+//             'title' => fake()->title,
+//             'slug' => Str::slug(fake()->title),
+//         ]);
     }
 }

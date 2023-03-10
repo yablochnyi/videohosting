@@ -48,7 +48,8 @@ class Index extends Component
 
     public function render()
     {
+        $categories = Category::all();
         $videos = Video::orderByDesc('created_at')->where('visibility', 'public')->take(8)->get();
-        return view('livewire.index', compact('videos'));
+        return view('livewire.index', compact('videos', 'categories'));
     }
 }

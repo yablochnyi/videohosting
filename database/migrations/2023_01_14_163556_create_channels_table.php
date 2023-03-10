@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('avatar');
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('telegram')->nullable();
+            $table->string('country')->nullable();
             $table->text('about')->nullable();
             $table->string('slug');
             $table->timestamps();

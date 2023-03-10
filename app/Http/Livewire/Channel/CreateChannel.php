@@ -11,7 +11,7 @@ class CreateChannel extends Component
 {
     use withFileUploads;
 
-    public $name, $facebook, $twitter, $about, $image, $avatar;
+    public $name, $facebook, $twitter, $about, $image, $avatar, $slug, $instagram, $telegram, $country;
 
     protected $rules = [
         'image' => [
@@ -35,8 +35,17 @@ class CreateChannel extends Component
         'twitter' => [
             'nullable', 'string',
         ],
+        'instagram' => [
+            'nullable', 'string',
+        ],
+        'telegram' => [
+            'nullable', 'string',
+        ],
         'about' => [
             'nullable', 'string',
+        ],
+        'slug' => [
+            'required', 'unique:channels',
         ],
 
     ];
@@ -49,6 +58,7 @@ class CreateChannel extends Component
         'avatar.mimes' => 'Изображение должно быть в формате - jpeg,jpg,png',
         'avatar.dimensions' => 'Размер изображения должен быть 80 х 80 px',
         'name' => 'Введите название',
+        'slug' => 'Пользователь с таким псевдонимом уже существует'
     ];
 
     public function uploadCoverImage()
@@ -60,16 +70,33 @@ class CreateChannel extends Component
         $this->image->storeAs('image', $cover_name, 'public');
         $this->avatar->storeAs('image', $avatar, 'public');
 
-        \App\Models\Channel::create([
-            'user_id' => Auth::id(),
-            'name' => $this->name,
-            'image' => $cover_name,
-            'avatar' => $avatar,
-            'facebook' => $this->facebook,
-            'twitter' => $this->twitter,
-            'about' => $this->about,
-            'slug' => Str::slug($this->name),
-        ]);
+//        if ($this->slug) {
+            \App\Models\Channel::create([
+                'user_id' => Auth::id(),
+                'name' => $this->name,
+                'image' => $cover_name,
+                'avatar' => $avatar,
+                'facebook' => $this->facebook,
+                'twitter' => $this->twitter,
+                'about' => $this->about,
+                'slug' => Str::slug($this->slug),
+                'instagram' => $this->instagram,
+                'telegram' => $this->telegram,
+                'country' => $this->country,
+            ]);
+//        } else {
+//            \App\Models\Channel::create([
+//                'user_id' => Auth::id(),
+//                'name' => $this->name,
+//                'image' => $cover_name,
+//                'avatar' => $avatar,
+//                'facebook' => $this->facebook,
+//                'twitter' => $this->twitter,
+//                'about' => $this->about,
+//                'slug' => Str::slug($this->name),
+//            ]);
+//        }
+
     }
 
     public function save()

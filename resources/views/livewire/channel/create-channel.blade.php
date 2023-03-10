@@ -18,13 +18,18 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
+                            <label class="control-label">Псевдоним </label>
+                            <input class="form-control {{ $errors->has('slug') ? 'border-danger' : 'border-form-control' }}" wire:model.defer="slug" placeholder="Псевдоним" type="text">
+                            @error('slug') <span class="text-danger">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
                             <label class="control-label">Facebook </label>
                             <input class="form-control {{ $errors->has('facebook') ? 'border-danger' : 'border-form-control' }}" wire:model.defer="facebook" placeholder="Ссылка на Facebook" type="text">
                             @error('facebook') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label class="control-label">Twitter </label>
@@ -32,14 +37,38 @@
                             @error('twitter') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                     </div>
-
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">Telegram </label>
+                            <input class="form-control {{ $errors->has('telegram') ? 'border-danger' : 'border-form-control' }}" wire:model.defer="telegram" placeholder="Ссылка на Telegram" type="text">
+                            @error('telegram') <span class="text-danger">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">Instagram </label>
+                            <input class="form-control {{ $errors->has('instagram') ? 'border-danger' : 'border-form-control' }}" wire:model.defer="instagram" placeholder="Ссылка на Instagram" type="text">
+                            @error('instagram') <span class="text-danger">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label">Страна </label>
+                            <input class="form-control {{ $errors->has('country') ? 'border-danger' : 'border-form-control' }}" wire:model.defer="country" placeholder="Страна" type="text">
+                            @error('country') <span class="text-danger">{{ $message }}</span> @enderror
+                        </div>
+                    </div>
                 </div>
+{{--                <div class="row">--}}
+{{--                    --}}
+
+{{--                </div>--}}
 
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label class="control-label">О канале </label>
-                            <textarea wire:model.defer="about" id="editor" class="form-control {{ $errors->has('about') ? 'border-danger' : 'border-form-control' }}"></textarea>
+                            <textarea wire:model.defer="about" rows="4" class="form-control {{ $errors->has('about') ? 'border-danger' : 'border-form-control' }}"></textarea>
                             @error('about') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -48,7 +77,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label class="control-label">Загрузите аватарку <span class="required">*</span></label>
+                            <label class="control-label">Загрузите аватарку 80x80 <span class="required">*</span></label>
                             <input class="form-control {{ $errors->has('avatar') ? 'border-danger' : 'border-form-control' }}"  wire:model.defer="avatar" type="file">
                             @error('avatar') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
@@ -58,7 +87,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label class="control-label">Загрузите изображение <span class="required">*</span></label>
+                            <label class="control-label">Загрузите изображение 1500x400<span class="required">*</span></label>
                             <input class="form-control {{ $errors->has('image') ? 'border-danger' : 'border-form-control' }}"  wire:model.defer="image" type="file">
                             @error('image') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
@@ -75,25 +104,3 @@
         <!-- /.container-fluid -->
     </div>
 
-@push('video-script')
-    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
-{{--    <script>--}}
-{{--        ClassicEditor--}}
-{{--            .create( document.querySelector( '#editor' ) )--}}
-{{--            .catch( error => {--}}
-{{--                console.error( error );--}}
-{{--            } );--}}
-{{--    </script>--}}
-    <script>
-        ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .then( editor => {
-                editor.model.document.on( 'change:data', () => {
-                @this.set('about', editor.getData());
-                });
-            })
-            .catch( error => {
-                console.error( error );
-            });
-    </script>
-@endpush

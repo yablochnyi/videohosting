@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -52,18 +53,25 @@ class User extends Authenticatable
         return $this->hasMany(Subscription::class);
     }
 
-    public function subscribedChannels ()
+    public function subscribedChannels()
     {
         return $this->belongsToMany(Channel::class, 'subscriptions');
     }
 
     public function isSubscribedTo(Channel $channel)
     {
-        return (bool) $this->subscriptions()->where('channel_id', $channel->id)->count();
+        return (bool)$this->subscriptions()->where('channel_id', $channel->id)->count();
     }
 
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function hasCreatedChannels()
+    {
+
+        return $this->channels()->exists();
+
     }
 }

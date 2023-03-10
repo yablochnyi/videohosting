@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Channel extends Model
 {
     use HasFactory;
+
     protected $table = 'channels';
-    protected $fillable = ['user_id', 'name', 'image', 'avatar', 'facebook', 'twitter', 'about', 'slug'];
+    protected $fillable = ['user_id', 'name', 'image', 'avatar', 'facebook', 'twitter', 'about', 'slug', 'instagram', 'telegram', 'country'];
 
     public function getRouteKeyName()
     {

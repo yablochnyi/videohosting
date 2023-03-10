@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Video;
 use App\Jobs\convertVideoForStreaming;
 use App\Jobs\createThumbnailFromVideo;
 use App\Models\Channel;
+use App\Models\Notification;
+use App\Models\User;
 use App\Models\Video;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -16,12 +18,12 @@ class UploadVideo extends Component
 {
     use withFileUploads;
 
-    public $videoFile, $videoName, $title, $description, $channel, $visibility = 'public', $duration;
+    public $videoFile, $videoName, $title, $description, $channel, $visibility = 'public', $duration, $category;
 
     protected $rules = [
 
         'videoFile' => [
-            'required', 'mimes:mp4'
+            'required', 'mimes:mp4,avi,mov,wmv,flv,webm,mkv,3gp,mpeg,vob,mpg'
         ],
         'title' => [
             'required', 'string'
@@ -35,6 +37,9 @@ class UploadVideo extends Component
         'channel' => [
             'required',
         ],
+        'category' => [
+            'nullable',
+        ],
 
     ];
 
@@ -43,6 +48,7 @@ class UploadVideo extends Component
         'videoFile.mimes' => 'Видео должно быть в формате - mp4',
         'title' => 'Введите название',
         'channel' => 'Выберите канал',
+        'category' => 'Выберите категорию',
     ];
 
     public function thumbnail()
@@ -74,6 +80,7 @@ class UploadVideo extends Component
             'user_id' => Auth::id(),
             'channel_id' => $this->channel,
             'title' => $this->title,
+            'category_id' => $this->category,
             'description' => $this->description,
             'visibility' => $this->visibility,
             'path' => $this->videoName,
@@ -82,13 +89,32 @@ class UploadVideo extends Component
             'duration' => $this->duration
         ]);
 
+        $this->notification($this->channel);
+
         return redirect('watch/' . $video->slug);
+
+    }
+
+    public function notification($channelId)
+    {
+        $users = User::whereHas('subscribedChannels', function($query) use ($channelId) {
+            $query->where('channel_id', $channelId);
+        })->get();
+        foreach ($users as $user)
+        {
+            Notification::create([
+                'user_id' => $user->id,
+                'channel_id' => $this->channel,
+                'content' => 'Добавлено новое видео'
+            ]);
+        }
 
     }
 
     public function render()
     {
         $channels = auth()->user()->channels()->get();
-        return view('livewire.video.upload-video', compact('channels'));
+        $categories = \App\Models\Category::all();
+        return view('livewire.video.upload-video', compact('channels', 'categories'));
     }
 }

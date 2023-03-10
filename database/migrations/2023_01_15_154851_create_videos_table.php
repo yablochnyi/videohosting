@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->enum('visibility', ['public', 'private'])->default('public');
             $table->string('thumbnail');
+            $table->foreignId('category_id')->nullable()->constrained('categories');
             $table->string('path');
             $table->string('slug');
             $table->string('duration');

@@ -19,11 +19,14 @@ Route::get('/', \App\Http\Livewire\Index::class)->name('index');
 Route::middleware('auth')->group(function () {
     Route::get('/account', \App\Http\Livewire\Account::class)->name('account');
     Route::get('/channel/create', \App\Http\Livewire\Channel\CreateChannel::class)->name('channel.create');
+//    Route::get('/channel/edit/{channel}', \App\Http\Livewire\Channel\Edit::class)->name('channel.edit');
     Route::get('/upload/video', \App\Http\Livewire\Video\UploadVideo::class)->name('upload.video');
+    Route::get('/video/edit/{video}', \App\Http\Livewire\Video\Edit::class)->name('edit.video');
 });
 Route::get('/channels', \App\Http\Livewire\Channel\Channels::class)->name('channel.index');
 Route::get('/channel/{channel}', \App\Http\Livewire\Channel\Channel::class)->name('channel.show');
 Route::get('/watch/{video}', \App\Http\Livewire\Video\WatchVideo::class)->name('watch.video');
 Route::get('/search', \App\Http\Livewire\SearchVideo::class)->name('search.video');
+Route::get('/category/{category}', \App\Http\Livewire\Video\Category::class)->name('category.video');
 
 require __DIR__.'/auth.php';

@@ -161,13 +161,13 @@ Version: 1.0
 }
  .sidebar {
      width: 90px !important;
-     background: #ff516b;
-    /* Old browsers */
-     background: -moz-linear-gradient(-45deg, #ff516b 0%, #826cfd 100%);
-    /* FF3.6-15 */
-     background: -webkit-linear-gradient(-45deg, #ff516b 0%,#826cfd 100%);
-    /* Chrome10-25,Safari5.1-6 */
-     background: linear-gradient(135deg, #ff516b 0%,#826cfd 100%);
+    /* background: #ff516b;*/
+    /*!* Old browsers *!*/
+    /* background: -moz-linear-gradient(-45deg, #ff516b 0%, #826cfd 100%);*/
+    /*!* FF3.6-15 *!*/
+    /* background: -webkit-linear-gradient(-45deg, #ff516b 0%,#826cfd 100%);*/
+    /*!* Chrome10-25,Safari5.1-6 *!*/
+    /* background: linear-gradient(135deg, #ff516b 0%,#826cfd 100%);*/
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff516b', endColorstr='#826cfd',GradientType=1 );
     /* IE6-9 fallback on horizontal gradient */
@@ -192,10 +192,10 @@ Version: 1.0
      font-weight: 600;
 }
  .sidebar .nav-item .nav-link:hover, .sidebar .nav-item.active .nav-link {
-     background-color: rgba(255, 255, 255, 0.2);
+     /*background-color: rgba(255, 255, 255, 0.2);*/
 }
  .sidebar .nav-item .nav-link .fas {
-     color: #ffffff;
+     color: black;
 }
  .sidebar .nav-item .nav-link span {
      display: inline;
@@ -217,10 +217,10 @@ Version: 1.0
      display: none;
 }
  .sidebar .nav-item .nav-link {
-     color: #ffffff;
+     color: black;
 }
  .sidebar .nav-item .nav-link:active, .sidebar .nav-item .nav-link:focus, .sidebar .nav-item .nav-link:hover {
-     color: rgba(255, 255, 255, 0.75);
+     color: red;
 }
  .sidebar.toggled {
      width: 0 !important;
@@ -380,7 +380,7 @@ Version: 1.0
      color: #777;
 }
  footer.sticky-footer {
-     background-color: #e9ecef;
+     /*background-color: #e9ecef;*/
      padding: 15px;
      margin-left: 225px;
 }
@@ -461,12 +461,12 @@ Version: 1.0
 }
 
  .channel-sidebar-list {
-     border-top: 1px solid #ff516b;
+     border-top: 1px solid black;
      margin: 6px 0 0;
      padding: 7px 14px;
 }
  .channel-sidebar-list h6 {
-     color: #fff;
+     color: black;
      font-size: 14px;
      font-weight: 600;
      margin-bottom: 15px;
@@ -484,7 +484,7 @@ Version: 1.0
      width: 28px;
 }
  .channel-sidebar-list li a {
-     color: #fff;
+     color: black;
     display: inline-block;
     overflow: hidden;
     padding: 6px 0;
@@ -1036,7 +1036,7 @@ Version: 1.0
     background: #fff none repeat scroll 0 0;
     border-radius: 2px;
     box-shadow: 0 0 11px #ececec;
-    height: 314px;
+    height: 500px;
     overflow: auto;
 }
 .video-slider-right-list .video-card-list .video-card-image {
