@@ -103,7 +103,7 @@
                         <div class="col-xl-3 col-sm-6 mb-3">
                             <div class="channels-card">
                                 <div class="channels-card-image">
-                                    <a href="{{route('channel.show', $subscribe)}}"><img class="img-fluid" src="{{asset('storage/image/' . $channel->avatar)}}" alt=""></a>
+                                    <a href="{{route('channel.show', $subscribe)}}"><img class="img-fluid" src="{{asset('storage/image/' . $subscribe->avatar)}}" alt=""></a>
                                 </div>
                                 <div class="channels-card-body">
                                     <div class="channels-title">
