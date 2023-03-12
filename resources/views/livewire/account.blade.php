@@ -29,7 +29,7 @@
                             </div>
                             <div class="video-card-body">
                                 <div class="video-title">
-                                    <a href="{{route('watch.video', $video)}}">{{$video->title}}</a>
+                                    <a href="{{route('watch.video', $video)}}">{{ Str::limit($video->title, 30, '...') }}</a>
                                 </div>
                                 <div class="video-page text-success">
                                     {{$video->channel->name}}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
@@ -37,6 +37,26 @@
                                 <div class="video-view">
                                     {{$video->views}} <i class="fas fa-eye"></i> &nbsp;<i class="fas fa-calendar-alt"></i>
                                     {{\Carbon\Carbon::parse($video->created_at)->diffForHumans()}}
+                                    @if($video->user_id == \Illuminate\Support\Facades\Auth::id())
+                                        <div class="btn-group float-right right-action">
+                                            <a href="#" class="right-action-link text-gray"
+                                               data-toggle="dropdown" aria-haspopup="true"
+                                               aria-expanded="false">
+                                                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right"
+                                                 x-placement="bottom-end"
+                                                 style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(23px, 21px, 0px);">
+                                                <a wire:click="deleteVideo({{$video->id}})"
+                                                   class="dropdown-item" href="#"><i
+                                                        class="fas fa-regular fa-trash"></i> &nbsp; Удалить</a>
+                                                <a class="dropdown-item"
+                                                   href="{{route('edit.video', $video)}}"><i
+                                                        class="fas fa-regular fa-pen"></i> &nbsp;
+                                                    Редактировать</a>
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

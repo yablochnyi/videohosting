@@ -20,17 +20,17 @@
                     <div class="owl-carousel owl-carousel-category owl-loaded owl-drag">
                         <div class="owl-stage-outer">
                             <div class="owl-stage"
-                                 style="transform: translate3d(-2468px, 0px, 0px); transition: all 1s ease 0s; width: 4320px;">
+                                 style="transform: translate3d(-2468px, 0px, 0px); transition: all 1s ease 0s; width: 4320px; margin-top: 25px">
                                 @foreach($categories as $category)
-                                <div class="owl-item" style="width: 154.275px;">
-                                    <div class="item">
-                                        <div class="category-item">
-                                            <a href="{{route('category.video', $category)}}">
-                                                <h6>{{$category->title}}</h6>
-                                            </a>
+                                    <div class="owl-item" style="width: 154.275px;">
+                                        <div class="item">
+                                            <div class="category-item">
+                                                <a href="{{route('category.video', $category)}}">
+                                                    <h6>{{$category->title}}</h6>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
                         </div>
@@ -53,17 +53,17 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="main-title">
-{{--                        <div class="btn-group float-right right-action">--}}
-{{--                            <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true"--}}
-{{--                               aria-expanded="false">--}}
-{{--                                Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-menu dropdown-menu-right">--}}
-{{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>--}}
-{{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>--}}
-{{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="btn-group float-right right-action">--}}
+                        {{--                            <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true"--}}
+                        {{--                               aria-expanded="false">--}}
+                        {{--                                Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>--}}
+                        {{--                            </a>--}}
+                        {{--                            <div class="dropdown-menu dropdown-menu-right">--}}
+                        {{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>--}}
+                        {{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>--}}
+                        {{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
                         <h6>Последние видео</h6>
                     </div>
                 </div>
@@ -78,7 +78,8 @@
                             </div>
                             <div class="video-card-body">
                                 <div class="video-title">
-                                    <a href="{{route('watch.video', $video)}}">{{$video->title}}</a>
+
+                                    <a href="{{route('watch.video', $video)}}">{{ Str::limit($video->title, 30, '...') }}</a>
                                 </div>
                                 <div class="video-page text-success">
                                     {{$video->channel->name}} <a title="" data-placement="top" data-toggle="tooltip"
@@ -101,17 +102,17 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="main-title">
-{{--                        <div class="btn-group float-right right-action">--}}
-{{--                            <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true"--}}
-{{--                               aria-expanded="false">--}}
-{{--                                Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>--}}
-{{--                            </a>--}}
-{{--                            <div class="dropdown-menu dropdown-menu-right">--}}
-{{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>--}}
-{{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>--}}
-{{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="btn-group float-right right-action">--}}
+                        {{--                            <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true"--}}
+                        {{--                               aria-expanded="false">--}}
+                        {{--                                Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>--}}
+                        {{--                            </a>--}}
+                        {{--                            <div class="dropdown-menu dropdown-menu-right">--}}
+                        {{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top Rated</a>--}}
+                        {{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>--}}
+                        {{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
                         <h6>Популярные каналы</h6>
                     </div>
                 </div>
@@ -138,7 +139,7 @@
                             </div>
                             <div class="channels-card-body">
                                 <div class="channels-title">
-                                    <a href="{{route('channel.show', $channel)}}">{{$channel->name}}</a>
+                                        <a href="{{route('channel.show', $channel)}}">{{ Str::limit($channel->name, 30, '...') }}</a>
                                 </div>
                                 <div class="channels-view">
                                     {{$channel->subscribers()}} подписчиков

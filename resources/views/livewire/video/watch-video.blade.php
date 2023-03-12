@@ -314,7 +314,13 @@
                                 <div class="float-right">
                                     <livewire:video.voting :video="$video"/>
                                 </div>
-                                <h2>{{$video->title}}</h2>
+                                @if (strlen($video->title) > 50)
+                                    <h2>{{ wordwrap($video->title, 50, "\n", true) }}</h2>
+                                @else
+                                    <h2>{{ $video->title }}</h2>
+                                @endif
+
+{{--                                <h2>{{ Str::limit($video->title, 50, '...') }}</h2>--}}
                                 <p class="mb-0"><i class="fas fa-eye"></i> {{$video->views}} просмотров</p>
 
                             </div>

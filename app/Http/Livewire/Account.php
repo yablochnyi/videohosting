@@ -8,6 +8,12 @@ use Livewire\Component;
 
 class Account extends Component
 {
+
+    public function deleteVideo($id)
+    {
+        $video = Video::find($id);
+        $video->delete();
+    }
     public function render()
     {
         $channels = Auth::user()->channels()->get();

@@ -24,7 +24,7 @@ class CreateChannel extends Component
             'required',
             'max:1024',
             'mimes:jpeg,jpg,png',
-            'dimensions:width=80,height=80'
+//            'dimensions:width=80,height=80'
         ],
         'name' => [
             'required', 'string'

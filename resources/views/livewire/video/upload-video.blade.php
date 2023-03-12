@@ -25,8 +25,15 @@
                 @error('videoFile') <span class="text-danger">{{ $message }}</span> @enderror
                 <div class="osahan-progress" x-show="isUploading">
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"   aria-valuemin="0" aria-valuemax="100" :style="`width: ${progress}%`"></div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+                             aria-valuemin="0" aria-valuemax="100" :style="`width: ${progress}%`"></div>
                     </div>
+                    <div x-show="isUploading">
+
+                       <h2>Идет загрузка: <span x-text="Math.round(progress) + '%'"></span></h2>
+                    </div>
+
+                    {{--                    <h2>Идет загрузка `${progress}%`</h2>--}}
 {{--                    <div class="osahan-close">--}}
 {{--                        <a href="#"><i class="fas fa-times-circle"></i></a>--}}
 {{--                    </div>--}}

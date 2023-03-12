@@ -810,7 +810,7 @@ Version: 1.0
      text-align: center;
 }
  .top-category .category-item {
-     padding: 20px 11px;
+     padding: 2px;
 }
  .category-item h6 {
      font-size: 13px;
@@ -829,6 +829,8 @@ Version: 1.0
     margin-bottom: 30px !important;
 }
  .video-card-image {
+     display: flex;
+     justify-content: center;
      border-radius: 2px;
      box-shadow: 0 0 11px #ececec;
      overflow: hidden;
@@ -850,7 +852,9 @@ Version: 1.0
      opacity: unset;
 }
 .video-card-image img {
-    width: 100%;
+    justify-content: revert;
+    /*width: 100%;*/
+    height: 169px;
 }
  .play-icon {
      opacity: 0;
@@ -1262,6 +1266,7 @@ Version: 1.0
 }
 .single-channel-image .img-fluid {
     width: 100%;
+    height: 400px;
 }
  .channel-profile-img {
      background: #fff none repeat scroll 0 0;
@@ -1493,7 +1498,8 @@ Version: 1.0
          font-size: 0.65rem;
     }
      .video-card-image img {
-         width: 100%;
+         /*width: 100%;*/
+         height: 169px;
     }
      footer {
         padding: 15px 0 !important;
@@ -1623,7 +1629,8 @@ Version: 1.0
          font-size: 0.65rem;
     }
      .video-card-image img {
-         width: 100%;
+         /*width: 100%;*/
+         height: 169px;
     }
      footer {
         padding: 15px 0 !important;
@@ -1733,7 +1740,8 @@ Version: 1.0
         padding: 30px 15px 15px !important;
     }
      .video-card-image img {
-         width: 100%;
+         /*width: 100%;*/
+         height: 169px;
     }
      .osahan-right-navbar .nav-link {
          font-size: 0;
@@ -1809,7 +1817,8 @@ Version: 1.0
         padding: 30px 15px 15px !important;
     }
      .video-card-image img {
-         width: 100%;
+         /*width: 100%;*/
+         height: 169px;
     }
      .osahan-right-navbar .nav-link {
          font-size: 0;

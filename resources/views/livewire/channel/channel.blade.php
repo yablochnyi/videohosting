@@ -25,9 +25,10 @@
         </div>
         <div class="single-channel-nav">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="channel-brand">{{$channel->name}} <span title="" data-placement="top" data-toggle="tooltip"
-                                                                  data-original-title="Verified"><i
-                            class="fas fa-check-circle text-success"></i></span></a>
+                    <a class="channel-brand">{{$channel->name}}
+                        <span title="" data-placement="top" data-toggle="tooltip"
+                              data-original-title="Verified"><i
+                                class="fas fa-check-circle text-success"></i></span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -45,12 +46,12 @@
                             <a class="nav-link" id="disqus-comments-tab" data-toggle="tab" href="#disqus-comments"
                                role="tab" aria-controls="disqus" aria-selected="true">О канале</a>
                         </li>
-{{--                        @if(!$channel->isOwnedBy(\Illuminate\Support\Facades\Auth::id()))--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link" href="{{route('channel.edit', $channel->slug)}}"--}}
-{{--                               role="tab" aria-controls="facebook" aria-selected="false">Редактировать</a>--}}
-{{--                        </li>--}}
-{{--                        @endif--}}
+                        {{--                        @if(!$channel->isOwnedBy(\Illuminate\Support\Facades\Auth::id()))--}}
+                        {{--                        <li class="nav-item">--}}
+                        {{--                            <a class="nav-link" href="{{route('channel.edit', $channel->slug)}}"--}}
+                        {{--                               role="tab" aria-controls="facebook" aria-selected="false">Редактировать</a>--}}
+                        {{--                        </li>--}}
+                        {{--                        @endif--}}
                     </ul>
                     @if(\Illuminate\Support\Facades\Auth::check())
                         @if($channel->isOwnedBy(\Illuminate\Support\Facades\Auth::id()))
@@ -107,7 +108,7 @@
                                         </div>
                                         <div class="video-card-body">
                                             <div class="video-title">
-                                                <a href="{{route('watch.video', $video)}}">{{$video->title}}</a>
+                                                <a href="{{route('watch.video', $video)}}">{{ Str::limit($video->title, 30, '...') }}</a>
                                             </div>
                                             <div class="video-page text-success">
                                                 {{$video->channel->name}} <a title="" data-placement="top"

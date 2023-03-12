@@ -8,8 +8,12 @@ use App\Models\Channel;
 use App\Models\Notification;
 use App\Models\User;
 use App\Models\Video;
+use FFMpeg\Coordinate\Dimension;
+use FFMpeg\Filters\Frame\FrameFilters;
+use FFMpeg\Filters\Video\VideoFilters;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
@@ -66,6 +70,16 @@ class UploadVideo extends Component
             ->toDisk('public')
             ->save('video_image/' . $this->videoName . '.png');
 
+        $image = Image::make('storage/video_image/' . $this->videoName . '.png');
+
+// Изменяем размер с сохранением соотношения сторон
+        $image->resize(270, 169, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+
+// Сохраняем изображение в формате jpeg
+        $image->save('storage/video_image/' . $this->videoName . '.png');
+
         $this->duration = gmdate('H:i:s', $media->getDurationInSeconds());
 
         $this->emit('thumbnail', 'video_image/' . $this->videoName . '.png');
@@ -97,11 +111,10 @@ class UploadVideo extends Component
 
     public function notification($channelId)
     {
-        $users = User::whereHas('subscribedChannels', function($query) use ($channelId) {
+        $users = User::whereHas('subscribedChannels', function ($query) use ($channelId) {
             $query->where('channel_id', $channelId);
         })->get();
-        foreach ($users as $user)
-        {
+        foreach ($users as $user) {
             Notification::create([
                 'user_id' => $user->id,
                 'channel_id' => $this->channel,
