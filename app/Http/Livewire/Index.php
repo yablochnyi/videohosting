@@ -13,38 +13,38 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    public $channels = [];
+    public $popularVideos = [];
 
     public function mount()
     {
-        $this->channels = Channel::withCount('subscriptions')
-            ->orderBy('subscriptions_count', 'desc')
+        $this->popularVideos = Video::query()
+            ->orderByDesc('views')
             ->take(4)
             ->get();
     }
-    public function toggle($channelId)
-    {
-        if (!Auth::check()) {
-            return redirect()->route('login');
-        }
-
-        $channel = Channel::find($channelId);
-
-        if (!$channel) {
-            return;
-        }
-
-        if (auth()->user()->isSubscribedTo($channel)) {
-            Subscription::where('user_id', auth()->id())->where('channel_id', $channel->id)->delete();
-            $this->userSubscribed = false;
-        } else {
-            Subscription::create([
-                'user_id' => auth()->id(),
-                'channel_id' => $channel->id
-            ]);
-            $this->userSubscribed = true;
-        }
-    }
+//    public function toggle($channelId)
+//    {
+//        if (!Auth::check()) {
+//            return redirect()->route('login');
+//        }
+//
+//        $channel = Channel::find($channelId);
+//
+//        if (!$channel) {
+//            return;
+//        }
+//
+//        if (auth()->user()->isSubscribedTo($channel)) {
+//            Subscription::where('user_id', auth()->id())->where('channel_id', $channel->id)->delete();
+//            $this->userSubscribed = false;
+//        } else {
+//            Subscription::create([
+//                'user_id' => auth()->id(),
+//                'channel_id' => $channel->id
+//            ]);
+//            $this->userSubscribed = true;
+//        }
+//    }
 
     public function render()
     {

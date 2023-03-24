@@ -26,10 +26,11 @@ Version: 1.0
      min-height: 100%;
 }
  body {
-     background-color: #fafafa;
+     /*background-color: #fafafa;*/
      color: #888;
      font-size: 13px;
      height: 100%;
+     font-family: 'Roboto', sans-serif;
 }
  .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
 }
@@ -890,7 +891,12 @@ Version: 1.0
      text-decoration: none;
 }
  .video-title {
-     margin-bottom: 5px;
+     margin-bottom: 15px;
+     word-wrap: break-word;
+     overflow-wrap: break-word;
+     white-space: normal;
+     display: inline-block;
+     max-width: 100%;
 }
  .video-page {
      font-size: 11px;
@@ -1044,8 +1050,8 @@ Version: 1.0
     overflow: auto;
 }
 .video-slider-right-list .video-card-list .video-card-image {
-    height: 59px;
-    width: 95px;
+    height: 110px;
+    width: 200px;
 }
 .video-slider-right-list .video-card-image img {
     object-fit: scale-down;

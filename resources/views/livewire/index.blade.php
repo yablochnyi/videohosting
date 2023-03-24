@@ -21,7 +21,7 @@
                         <div class="owl-stage-outer">
                             <div class="owl-stage"
                                  style="transform: translate3d(-2468px, 0px, 0px); transition: all 1s ease 0s; width: 4320px; margin-top: 25px">
-                                @foreach($categories as $category)
+                                @foreach($categories as $category)'
                                     <div class="owl-item" style="width: 154.275px;">
                                         <div class="item">
                                             <div class="category-item">
@@ -34,16 +34,16 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="owl-nav">
-                            <button type="button" role="presentation" class="owl-prev"><i
-                                    class="fa fa-chevron-left"></i></button>
-                            <button type="button" role="presentation" class="owl-next"><i
-                                    class="fa fa-chevron-right"></i></button>
-                        </div>
-                        <div class="owl-dots">
-                            <button role="button" class="owl-dot"><span></span></button>
-                            <button role="button" class="owl-dot active"><span></span></button>
-                        </div>
+{{--                        <div class="owl-nav">--}}
+{{--                            <button type="button" role="presentation" class="owl-prev"><i--}}
+{{--                                    class="fa fa-chevron-left"></i></button>--}}
+{{--                            <button type="button" role="presentation" class="owl-next"><i--}}
+{{--                                    class="fa fa-chevron-right"></i></button>--}}
+{{--                        </div>--}}
+{{--                        <div class="owl-dots">--}}
+{{--                            <button role="button" class="owl-dot"><span></span></button>--}}
+{{--                            <button role="button" class="owl-dot active"><span></span></button>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -113,36 +113,34 @@
                         {{--                                <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>--}}
                         {{--                            </div>--}}
                         {{--                        </div>--}}
-                        <h6>Популярные каналы</h6>
+                        <h6>Популярные видео</h6>
                     </div>
                 </div>
                 {{--                    <livewire:components.favorite-channel :channels="$channels" :key="time()" />--}}
-                @foreach($channels as $channel)
+                @foreach($popularVideos as $popularVideo)
                     <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="channels-card">
-                            <div class="channels-card-image">
-                                <a href="{{route('channel.show', $channel)}}"><img class="img-fluid"
-                                                                                   src="{{asset('storage/image/' . $channel->avatar)}}"
-                                                                                   alt=""></a>
-                                <div class="channels-card-image-btn">
-                                    @auth()
-                                        <button wire:click.prevent="toggle({{ $channel->id }})"
-                                                class="btn {{auth()->user()->isSubscribedTo($channel) ? 'btn-success' : 'btn-danger'}}"
-                                                type="button">{{auth()->user()->isSubscribedTo($channel) ? 'Вы подписаны' : 'Подписаться'}} </button>
-                                    @endauth
-                                    @guest()
-                                        <button wire:click.prevent="toggle({{ $channel->id }})"
-                                                class="btn btn-danger" type="button">Подписаться
-                                        </button>
-                                    @endguest
-                                </div>
+                        <div class="video-card">
+                            <div class="video-card-image">
+                                <a class="play-icon" href="{{route('watch.video', $popularVideo)}}"><i
+                                        class="fas fa-play-circle"></i></a>
+                                <a href="#"><img class="img-fluid" src="{{asset('storage/'.$popularVideo->thumbnail)}}" alt=""></a>
+                                <div class="time">{{$popularVideo->duration}}</div>
                             </div>
-                            <div class="channels-card-body">
-                                <div class="channels-title">
-                                        <a href="{{route('channel.show', $channel)}}">{{ Str::limit($channel->name, 30, '...') }}</a>
+                            <div class="video-card-body">
+                                <div class="video-title">
+                                    <a href="{{ route('watch.video', $popularVideo) }}">{{ Str::limit($popularVideo->title, 30) }}</a>
                                 </div>
-                                <div class="channels-view">
-                                    {{$channel->subscribers()}} подписчиков
+
+
+                                <div class="video-page text-success">
+                                    {{$popularVideo->channel->name}} <a title="" data-placement="top" data-toggle="tooltip"
+                                                                 href="#" data-original-title="Verified"><i
+                                            class="fas fa-check-circle text-success"></i></a>
+                                </div>
+                                <div class="video-view">
+                                    {{$popularVideo->views}} <i class="fas fa-eye"></i> &nbsp;<i
+                                        class="fas fa-calendar-alt"></i>
+                                    {{\Carbon\Carbon::parse($popularVideo->created_at)->diffForHumans()}}
                                 </div>
                             </div>
                         </div>

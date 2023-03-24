@@ -7,6 +7,8 @@
     <meta name="description" content="Askbootstrap">
     <meta name="author" content="Askbootstrap">
     <title>VIDOE - Video Streaming Website HTML Template</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <!-- Favicon Icon -->
     <link rel="icon" type="image/png" href="img/favicon.png">
     <!-- Bootstrap core CSS-->
